@@ -33,7 +33,16 @@ BROWSERSTACK_ACCESS_KEY=your_access_key
 python main.py
 
 ## ☁️ Run on BrowserStack
-Ensure credentials are set in `.env`
+browserstack-sdk python main.py
+
+## 🌐 BrowserStack Execution
+### Tests run in parallel across:
+  
+✔ Chrome (Windows)
+✔ Firefox (Windows)
+✔ Safari (macOS)
+✔ Samsung Galaxy
+✔ iPhone
 
 ## 👨‍💻 Author
-Your Name
+Atharva Chourikar
