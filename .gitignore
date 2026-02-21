@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Selenium / drivers
+drivers/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Images (optional)
+images/
+log/
