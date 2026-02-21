@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -33,7 +34,7 @@ def setup_driver():
     )
     driver.implicitly_wait(2)
 
-    print("✅ Local driver initialized")
+    print(" Local driver initialized")
     return driver
 
 # ---------------- BROWSERSTACK DRIVER ---------------- #
@@ -47,7 +48,7 @@ def setup_browserstack_driver(capabilities):
     )
 
     driver.implicitly_wait(2)
-    print(f"🚀 BrowserStack session started: {driver.session_id}")
+    print(f" BrowserStack session started: {driver.session_id}")
     return driver
 
 # ---------------- CAPABILITIES ---------------- #
@@ -105,7 +106,7 @@ def translate_to_english(text):
     try:
         return GoogleTranslator(source='es', target='en').translate(text)
     except Exception as e:
-        print(f"⚠️ Translation error: {e}")
+        print(f" Translation error: {e}")
         return "Translation failed"
 
 # ---------------- NAVIGATION ---------------- #
@@ -116,7 +117,7 @@ def open_opinion_section(driver):
         EC.presence_of_element_located((By.CSS_SELECTOR, "article"))
     )
 
-    print("✅ Opinion section ready")
+    print(" Opinion section ready")
 
 # ---------------- ARTICLE LINKS ---------------- #
 def get_first_five_articles(driver):
@@ -145,10 +146,10 @@ def download_image(url, index):
         with open(f"images/article_{index}.jpg", "wb") as f:
             f.write(response.content)
 
-        print(f"✅ Image saved: article_{index}.jpg")
+        print(f" Image saved: article_{index}.jpg")
 
     except Exception as e:
-        print(f"ℹ️ Image download failed: {e}")
+        print(f" Image download failed: {e}")
 
 # ---------------- REQUESTS SCRAPER ---------------- #
 def fetch_article_content(url):
@@ -175,7 +176,7 @@ def fetch_article_content(url):
         return title, content
 
     except Exception as e:
-        print(f"❌ Requests parsing error: {e}")
+        print(f" Requests parsing error: {e}")
         return "Title not found", "Content not found"
 
 # ---------------- WORD ANALYSIS ---------------- #
@@ -205,7 +206,7 @@ def analyze_repeated_words(titles):
 
 # ---------------- ARTICLE SCRAPER ---------------- #
 def scrape_article(driver, url, index):
-    print(f"\n🔎 Scraping: {url}")
+    print(f"\n Scraping: {url}")
 
     title, content = fetch_article_content(url)
 
@@ -219,7 +220,7 @@ def scrape_article(driver, url, index):
                 download_image(img_url, index)
 
     except Exception as e:
-        print(f"ℹ️ Image issue: {e}")
+        print(f" Image issue: {e}")
 
     print("=" * 60)
     print(f"ARTICLE {index}")
@@ -268,7 +269,7 @@ def main():
     finally:
         driver.quit()
 
-    print("\n🚀 Running 5 parallel BrowserStack sessions...\n")
+    print("\n Running 5 parallel BrowserStack sessions...\n")
 
     caps_list = get_browserstack_caps()
 
